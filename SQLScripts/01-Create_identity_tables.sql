@@ -4,15 +4,12 @@ USE farmas;
 
 
 DROP TABLE IF EXISTS [dbo].[UserLogins];
-DROP TABLE IF EXISTS [dbo].[UserClaims];
 DROP TABLE IF EXISTS [dbo].[UserRoles];
 DROP TABLE IF EXISTS [dbo].[Users];
 DROP TABLE IF EXISTS [dbo].[Patients];
 DROP TABLE IF EXISTS [dbo].[Doctors];
 DROP TABLE IF EXISTS [dbo].[Roles];
 DROP TABLE IF EXISTS [dbo].[Medication];
-DROP TABLE IF EXISTS [dbo].[Inventory];
-DROP TABLE IF EXISTS [dbo].[Suppliers];
 DROP TABLE IF EXISTS [dbo].[Category];
 DROP TABLE IF EXISTS [dbo].[Cart];
 DROP TABLE IF EXISTS [dbo].[Prescription];
@@ -56,7 +53,7 @@ CREATE TABLE [dbo].[Patients] (
 
 
 GO
-CREATE NONCLUSTERED INDEX [IX_UserId_Client]
+CREATE NONCLUSTERED INDEX [IX_UserId_Clients]
     ON [dbo].[Clients]([UserId] ASC);
 
 CREATE TABLE [dbo].[Doctors] (
@@ -111,18 +108,6 @@ GO
 CREATE NONCLUSTERED INDEX [IX_UserId]
     ON [dbo].[UserLogins]([UserId] ASC);
 
-CREATE TABLE [dbo].[UserClaims] (
-    [Id]         INT IDENTITY (1, 1) NOT NULL,
-    [UserId]     NVARCHAR (128) NOT NULL,
-    [ClaimType]  NVARCHAR (MAX) NULL,
-    [ClaimValue] NVARCHAR (MAX) NULL,
-    CONSTRAINT [PK_dbo.UserClaims] PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_dbo.UserClaims_dbo.Users_UserId] FOREIGN KEY (UserId) REFERENCES [dbo].[Users] ([Id]) ON DELETE CASCADE
-);
-
-GO
-CREATE NONCLUSTERED INDEX [IX_UserId]
-    ON [dbo].[UserClaims]([UserId] ASC);
 
 CREATE TABLE [dbo].[Diagnosis] (
     [Id]         INT IDENTITY (1, 1) NOT NULL,
@@ -159,37 +144,10 @@ CREATE TABLE [dbo].[Medication] (
     [PrescriptionRequired] BIT NOT NULL DEFAULT 0,
     [SideEffects] NVARCHAR(256),
     [DrugInteractions] NVARCHAR(256),
-    [SupplierId] INT NULL,
     CONSTRAINT [PK_dbo.Medication] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [UK_Name_dbo.Medication] UNIQUE (Name),
 	CONSTRAINT [FK_dbo.Medication_dbo.Category] FOREIGN KEY (CategoryId) REFERENCES [dbo].[Category] ([Id]),
-    CONSTRAINT [FK_dbo.Medication_dbo.Supplier] FOREIGN KEY (SupplierId) REFERENCES [dbo].[Suppliers] ([Id])
 );
-
-CREATE TABLE [dbo].[Suppliers] (
-    [Id] INT IDENTITY (1, 1) NOT NULL,
-    [Name] NVARCHAR (256) NOT NULL,
-    [ContactName] NVARCHAR (256) NULL,
-    [Email] NVARCHAR (256) NULL,
-    [Phone] NVARCHAR (50) NULL,
-    [Address] NVARCHAR (256) NULL,
-    [City] NVARCHAR (128) NULL,
-    [Country] NVARCHAR (128) NULL,
-    CONSTRAINT [PK_dbo.Suppliers] PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [UK_Name_dbo.Suppliers] UNIQUE (Name)
-);
-
-
-CREATE TABLE [dbo].[Inventory] (
-    [Id] INT IDENTITY (1, 1) NOT NULL,
-    [MedicationId] INT NOT NULL,
-    [Quantity] INT NOT NULL,
-    [DateReceived] DATETIME NOT NULL,
-    [Supplier] NVARCHAR (256) NULL,
-    CONSTRAINT [PK_dbo.Inventory] PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_dbo.Inventory_dbo.Medication] FOREIGN KEY (MedicationId) REFERENCES [dbo].[Medication] ([Id]) ON DELETE CASCADE
-);
-
 
 CREATE TABLE [dbo].[Cart] (
     [Id]        INT IDENTITY (1, 1) NOT NULL,
