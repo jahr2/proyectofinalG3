@@ -4,7 +4,7 @@ body{background:#f4f9f9;}
 
 header {
 	width:100%;
-	height: 150px;
+	height: 125px;
 	overflow: hidden;
 	background:#ffffff;
 	margin-bottom:20px;
@@ -12,7 +12,8 @@ header {
 
 .wrapper {
 	width:90%;
-	max-width:1000px;
+	height: 80%;
+	max-width:1285px;
 	margin:auto;
 	overflow:hidden;
 }
@@ -22,17 +23,25 @@ header {
 	width: 200px;
 }
 
-header .logo-container {
+/*Styles for line*/
+/* .line{
+	border: none;
+	height: 1px;
+	background-color: red;
+} */
+
+header .farmas-box {
 	color:#79c3ee;
 	font-size:50px;
-	font-family:"Nexa";
-	line-height:200px;
+	font-family:"Nexa" !important; 
+	line-height:125px;
 	float:left;
 }
 
 header nav {
 	float:right;
 	line-height:150px;
+	height: 100px;
 }
 
 header nav a {
@@ -62,7 +71,7 @@ header nav a:hover {
 
 }
 
-.header2 .logo-container {
+.header2 .farmas-box {
 	line-height:100px;
 	font-size:30px;
 }
@@ -71,21 +80,56 @@ header nav a:hover {
 	line-height:100px;
 }
 
-.container p {
-	margin-bottom:1em;
+.box{
+	display: flex;
+	flex-direction: row;
+	gap:10px;
+	width: 100%;
+	padding:20px;
+	background:#79c3ee;
 }
 
-.container h3 {
-	display:block;
-	padding:20px;
-	color:#fff;
-	text-align:center;
-	background:#79c3ee;
-	margin-bottom:1em;
+/*Styles for menu-box*/
+.menu-box{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	margin-top: 20px;
+	margin-right: 10px;
+}
+
+/*Styles for vertical-list-box*/
+.vertical-list-box{
+	width: 20%;
+	background-color: aqua;
+}
+
+/*Styles for medication-box */
+.medication-box{
+	width: 80%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: stretch;
+	row-gap: 16px;
+}
+
+/*Styles for medication-card*/
+.medication-card{
+	width: 22%;
+}
+
+/*Styles for medication-card-body*/
+.medication-card-body{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 @media screen and (max-width: 950px) {
-	header .logo-container,
+	header .farmas-box,
 	header nav {
 		width:100%;
 		text-align:center;
@@ -96,7 +140,7 @@ header nav a:hover {
 		height:auto;
 	}
 
-	.header2 .logo-container{
+	.header2 .farmas-box{
 		line-height:50px;
 	}
 

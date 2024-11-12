@@ -5,6 +5,9 @@
 	<title>Farmas</title>
 	<link rel="icon" type="image/png" href="../assets/farmasLogo.png">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-
+    Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	
 	<link rel = "stylesheet" href="../css/styles.css">
 	
@@ -13,28 +16,49 @@
 <body>
 	<header class="header">
 		<div class="wrapper">
-			<div class="logo-container">
+			<div class="farmas-box">
 				<img class="farmas-logo" src="../assets/farmasLogo.png">
 			</div>
 			<nav>
-				<a href="../views/principal-page.html">Home</a>
-				<a href="../views/services.html">Services</a>
-				<a href="../views/ubication.html">Ubication</a>
-				<a href="../views/contact.html">Contact</a>
+				<a href="../views/Principal-page.html">Home</a>
+				<a href="../views/Register.html">Register</a>
+				<a href="../views/Login.html">Login</a>
+				<a href="../views/Contact.html">Contact</a>
 			</nav>
 		</div>
-	</header>
-	<section class="container wrapper">
-		<h3>Acerca de nosotros</h3>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
 		
+	</header>
+	<!-- <hr class="line"> -->
+	<section class="box wrapper">
+		<a href="" class="btn btn-light position-relative">
+			<img class="shopping-cart-img" src="../assets/shopping-cart.png" alt="shopping-cart">
+			<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+				0
+				<span class="visually-hidden"></span>
+			</span>
+		</a>
+		<input class="form-control" placeholder="Type here...">
+		<input type="submit" value="Search" class="btn btn-light" />
 	</section>
+
+	<div class="menu-box">
+		<div class="vertical-list-box">
+			<h1>Hola</h1>
+		</div>
+		<div class="medication-box">
+			<div class="card medication-card">
+				<img src="../assets/pills.jpg" class="card-img-top" alt="Pills image">
+				<div class="card-body">
+					<div class="medication-card-body">
+						<h5 id="medicationName" class="card-title">Pills</h5>
+						<h6>Price</h6>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	
 
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 </body>
