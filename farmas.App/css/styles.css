@@ -101,7 +101,7 @@ header nav a:hover {
 /*Styles for vertical-list-box*/
 .vertical-list-box{
 	width: 20%;
-	background-color: aqua;
+	background-color: #79c3ee;
 }
 
 /*Styles for medication-box */
@@ -211,3 +211,8 @@ header nav a:hover {
     align-items: center;
 }
 
+/*Styles for radio(Doctor/Patient)*/
+.check-box{
+	display: flex;
+	flex-direction: row;
+}
